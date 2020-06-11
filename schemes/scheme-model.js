@@ -18,4 +18,20 @@ function findSteps(id){
     .where({scheme_id:id})
 
 }
-module.exports = {find,findById,findSteps}
+function add(data){
+  return  db('schemes')
+    .insert(data)
+}
+
+function update (data,id){
+    db('schemes')
+    .where({id:id})
+    .update(data)
+}
+
+function remove(id){
+    db('schemes')
+    .where({id:id})
+    .delete()
+}
+module.exports = {find,findById,findSteps,add,update,remove}
